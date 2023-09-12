@@ -1,0 +1,133 @@
+:root {
+    --foreground: #000;
+    --background: #fefefe;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background);
+    padding: 0 80px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    padding: 1rem 0 0 0;
+}
+
+main {
+    flex-grow: 1;
+}
+
+nav a {
+    margin: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--foreground);
+}
+
+/* Input area */
+.input-area {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    grid-gap: 10px;
+}
+
+#codearea {
+    resize: none;
+    background-color: transparent;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+#codearea:focus {
+    outline: transparent;
+}
+
+.codearea-anim {
+    animation: focusCode 1s;
+}
+
+#outputArea {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: 1px solid var(--foreground);
+    font-size: 1rem;
+    padding: 5px
+}
+
+#inputsArea {
+    margin-top: auto;
+    background-color: white;
+}
+
+#input {
+    width: 100%;
+    border-top: 1px solid var(--foreground);
+    border-bottom: none; 
+    border-left: none;
+    border-right: none;
+    outline: transparent;
+}
+
+/* Actions */
+.actions {
+    margin: 2rem 0;
+}
+
+.actions button {
+    padding: 10px;
+    width: 20%;
+    border: 1px solid var(--foreground);
+    font-weight: 700;
+    background-color: transparent;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.actions button:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 800px) {
+    .input-area {
+        display: grid;
+        grid-template: 1fr 1fr / 1fr;
+        grid-gap: 10px;
+    }    
+}
+
+@media only screen and (max-width: 425px) {
+    .actions button {
+        width: 100%;
+        margin: 1% 0;
+    }
+
+    body {
+        padding: 0 20px;
+    }
+}
+
+/* Animations */
+@keyframes focusCode {
+    0% {background-color: var(--background);}
+    50% {background-color: #f1f1f1;}
+    100% {background-color: var(--background);}
+}
